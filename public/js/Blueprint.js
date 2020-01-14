@@ -118,6 +118,10 @@ class Blueprint {
         return canvas.toDataURL("images/jpeg");
     }
 
+    toBoothArray(){
+        return this.boothList.map(x => x.text);
+    }
+
     offset(e){
         const {pageX, pageY} = e;
         const {left, top} = $(this.ctx.canvas).offset()

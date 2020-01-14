@@ -43,6 +43,7 @@
             <h3 class="font-weight-bold text-bluegreen d-inline">FORM</h3>
             <p class="text-muted d-inline pl-2">제작한 도면을 사용하기</p>
             <div class="row mt-4">
+                <input type="hidden" id="">
                 <input type="hidden" id="layout" name="layout">
                 <div class="form-group col-md-6">
                     <label for="start_date">행사시작일</label>
