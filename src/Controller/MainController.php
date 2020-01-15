@@ -50,4 +50,18 @@ class MainController {
 
         view("history", ["histories" => $dataList]);
     }
+
+    function boothMap(){
+        $formatYM = date("Y-m-");
+        $tomorrow = (int)date("m") + 1;
+        $tomorrow = $formatYM . $tomorrow;
+
+        $data = [
+            "eventList" => DB::fetchAll("SELECT * FROM events WHERE end_date > timestamp(?) ORDER BY start_date ASC", [$tomorrow]),
+            
+        ];
+        $data['boothList'] = DB::fetchAll("SELECT B.*, U.user_name FROM event_booths B LEFT JOIN users U ON U.id = B.u_id WHERE B.u_id IS NOT NULL AND B.e_id = ?", [ $data['eventList'][0]->id ]);
+
+        view("booth-map", $data);
+    }
 }

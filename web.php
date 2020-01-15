@@ -30,6 +30,10 @@ Route::get("/users/logout", "UserController@act_logout", "user");
  Route::get("/reserve/cancel/{r_id}", "ReserveController@cancel_reserve");
  Route::get("/reserve/graph/{e_id}", "ReserveController@graph_reserve");
 
+ /**
+  * Booth Map
+  */
+Route::get("/booth-map", "MainController@boothMap");
 
 
 /**
@@ -42,6 +46,10 @@ Route::get("/users/logout", "UserController@act_logout", "user");
  Route::get("/admin/booth-application", "AdminController@application", "company");
  Route::post("/admin/booth-application", "AdminController@act_application", "company");
 
- Route::post("/api/take-booth/by-event/{e_id}", "AdminController@takeBoothByEvent", "company");
+ /**
+  * API
+  */
+
+Route::post("/api/take-booth/by-event/{e_id}", "AdminController@takeBoothByEvent");
 
 Route::redirect();

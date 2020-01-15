@@ -67,6 +67,6 @@ class AdminController {
      */
 
      function takeBoothByEvent($e_id){
-         return json_response(DB::fetchAll("SELECT * FROM event_booths WHERE e_id = ?", [$e_id]));
+         return json_response(DB::fetchAll("SELECT B.*, U.user_name FROM event_booths B LEFT JOIN users U ON U.id = B.u_id WHERE B.e_id = ?", [$e_id]));
      }
 }
