@@ -1,6 +1,8 @@
 <?php
 namespace Controller;
 
+use App\DB;
+
 class MainController {
     static function notFound(){
         echo "<h1>페이지를 찾을 수 없습니다!</h1><p>돌아가시려면 <a href=\"/\">이곳</a>을 클릭하세요</p>";

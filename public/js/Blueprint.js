@@ -3,6 +3,7 @@ class Blueprint {
         this.app = app;
         this.typeIdx = type;
 
+        this.fontSize = "normal";
         this.label = true;
         this.width = 80;
         this.height = 40;
@@ -118,8 +119,11 @@ class Blueprint {
         return canvas.toDataURL("images/jpeg");
     }
 
-    toBoothArray(){
-        return this.boothList.map(x => x.text);
+    toBoothJSON(){
+        return JSON.stringify(this.boothList.map(x => ({
+            name: x.text, 
+            size: x.width * x.height
+        })));
     }
 
     offset(e){
@@ -146,7 +150,7 @@ class Blueprint {
         this.ctx.fillStyle = color;
         this.ctx.fillRect(sx, sy, w - sx, h - sy);
 
-        this.ctx.font = this.label ? "16px Arial, sans-serif" : "5px Arial, sans-serif";
+        this.ctx.font = this.fontSize === "small" ? "5px Arial, sans-serif" : "16px Arial, sans-serif";
         this.ctx.fillStyle = "#ffffff";
 
         let measure = this.ctx.measureText(text);

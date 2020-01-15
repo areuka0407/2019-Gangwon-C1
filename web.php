@@ -20,6 +20,17 @@ Route::get("/users/join", "UserController@join", "guest");
 Route::post("/users/join", "UserController@act_join", "guest");
 Route::get("/users/logout", "UserController@act_logout", "user");
 
+/**
+ * Reserve
+ */
+
+ Route::get("/reserve", "ReserveController@reserve", "user");
+ Route::post("/reserve", "ReserveController@act_reserve", "user");
+
+ Route::get("/reserve/cancel/{r_id}", "ReserveController@cancel_reserve");
+ Route::get("/reserve/graph/{e_id}", "ReserveController@graph_reserve");
+
+
 
 /**
  * Admin
@@ -27,5 +38,10 @@ Route::get("/users/logout", "UserController@act_logout", "user");
 
  Route::get("/admin/site-manage", "AdminController@siteManage", "admin");
  Route::post("/admin/site-manage", "AdminController@act_siteManage", "admin");
+
+ Route::get("/admin/booth-application", "AdminController@application", "company");
+ Route::post("/admin/booth-application", "AdminController@act_application", "company");
+
+ Route::post("/api/take-booth/by-event/{e_id}", "AdminController@takeBoothByEvent", "company");
 
 Route::redirect();

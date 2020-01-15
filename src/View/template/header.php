@@ -42,7 +42,7 @@
                     </div>
                 </div>
                 <div class="nav-item">
-                    <a href="#">예매하기</a>
+                    <a href="/reserve">예매하기</a>
                 </div>
                 <div class="nav-item">
                     <a href="#">관람안내</a>
@@ -54,7 +54,7 @@
                     <a href="/admi/site-manage">관리자</a>
                     <div class="inner-nav">
                         <a href="/admin/site-manage">사이트관리자</a>
-                        <a href="#">부스신청</a>
+                        <a href="/admin/booth-application">부스신청</a>
                     </div>
                 </div>
             </div>

@@ -22,3 +22,11 @@ function adminCheck(){
     }
     else return true;
 }
+
+function companyCheck(){
+    if(!user() || user()->user_type !== "company"){
+        back("기업 회원만 이용할 수 있는 페이지 입니다.");
+        exit;
+    }
+    else return true;
+}

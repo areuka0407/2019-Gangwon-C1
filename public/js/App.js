@@ -68,6 +68,7 @@ class App {
             ];
             this.typeList = [new Blueprint(this)];
             this.typeList[0].label = false;
+            this.typeList[0].fontSize = "small";
 
             let img = document.createElement("img");
             img.src = this.typeList[0].toURL();
@@ -77,6 +78,7 @@ class App {
             this.roadList.forEach((x, i) => {
                 let typePrint = new Blueprint(this, i);
                 typePrint.label = false;
+                typePrint.fontSize = "small";
                 this.typeList.push(typePrint);
                 
                 // 타입 DOM
@@ -242,6 +244,7 @@ class App {
 
         this.$saveBtn.addEventListener("click", () => {
             this.current_view.label = false;
+            this.current_view.fontSize = "small";
             this.current_view.$image.src = this.current_view.toURL();
             this.current_view.$image.onload = () => {
                 this.saveList.push(this.current_view);
@@ -287,6 +290,7 @@ class App {
         // save
         let save_cv = {};
         save_cv.type = this.current_view.typeIdx;
+        save_cv.fontSize = this.current_view.fontSize;
         save_cv.booths = this.current_view.boothList.map(booth => {
             let b = {}
             b.x = booth.x; b.y = booth.y;
@@ -299,6 +303,7 @@ class App {
         let save_sl = this.saveList.map(print => {
             let p = {}
             p.type = print.typeIdx;
+            p.fontSize = print.fontSize;
             p.booths = print.boothList.map(booth => {
                 let b = {}
                 b.x = booth.x; b.y = booth.y;
@@ -320,6 +325,7 @@ class App {
             current_view = JSON.parse(current_view);
 
             let print = new Blueprint(this, current_view.type);
+            print.fontSize = current_view.fontSize;
             print.boothList = current_view.booths.map(booth => {
                 let b = new Booth(this, print);
                 b.x = booth.x; b.y = booth.y;
@@ -337,6 +343,7 @@ class App {
             save_list.forEach(item => {
                 let print = new Blueprint(this, item.type);
                 print.label = false;
+                print.fontSize = item.fontSize;
                 print.boothList = item.booths.map(booth => {
                     let b = new Booth(this, print);
                     b.x = booth.x; b.y = booth.y;

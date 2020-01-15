@@ -56,3 +56,9 @@ function emptyCheck(){
         }
     }
 }
+
+
+function json_response($data){
+    header("Content-Type: application");
+    echo json_encode($data);
+}
